@@ -1,4 +1,5 @@
-Softwaretechnologie: Java 2
+Fortgeschrittene Programmierung (Java 2)
+
 
 # Übung 7
 
