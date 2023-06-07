@@ -13,7 +13,7 @@ public class Bank implements Iterable<Account> {
 		// create accounts with varying balances
 		Random random = new Random();
 		for (int i = 0; i < 5; i++) {
-			accounts.put(String.valueOf(i), new Account(i, random.nextInt(1000)));
+			accounts.put(String.valueOf(i), new Account(String.valueOf(i), random.nextInt(1000)));
 		}
 		accounts.put("cashCASHcash", new Account("cashCASHcash", 10000));
 	}

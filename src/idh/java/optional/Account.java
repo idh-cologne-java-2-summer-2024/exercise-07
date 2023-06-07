@@ -11,9 +11,9 @@ public class Account {
 	int balance;
 	
 	// the id of the account
-	Object id;
+	String id;
 
-	public Account(Object id, int status) {
+	public Account(String id, int status) {
 		this.id = id;
 		this.balance = status;
 	}
@@ -22,7 +22,7 @@ public class Account {
 		return id;
 	}
 
-	public void setId(Object id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
