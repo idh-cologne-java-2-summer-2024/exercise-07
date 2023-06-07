@@ -1,4 +1,4 @@
-package idh.java;
+package idh.java.optional;
 
 
 import java.util.HashMap;
@@ -24,7 +24,6 @@ public class Bank implements Iterable<Account> {
 	}
 	
 	public Account getAccount(String number) {
-		// TODO: Implement
 		return accounts.get(number);
 	}
 
