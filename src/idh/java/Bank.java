@@ -13,14 +13,15 @@ public class Bank implements Iterable<Account> {
 	
 	
 	
-	HashMap <Integer, Account> bankAccounts = new HashMap <Integer, Account>();
+	HashMap <String, Account> bankAccounts = new HashMap <String, Account>();
 
 	public Bank() {
 		
+		String accountnamen = new String[5];
 		// create accounts with varying balanceMap
 		Random random = new Random();
 		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));
+			accounts[i] = new Account(accountnamen, random.nextInt(1000));
 			//bankAccounts.put(random.nextInt(1000), Account a);
 			
 		}

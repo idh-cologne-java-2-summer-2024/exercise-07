@@ -12,9 +12,11 @@ public class Account {
 	
 	// the id of the account
 	int id;
+	
+	String Accountid;
 
-	public Account(int id, int status) {
-		this.id = id;
+	public Account(String Accountid, int status) {
+		this.Accountid = Accountid;
 		this.balance = status;
 	}
 	
