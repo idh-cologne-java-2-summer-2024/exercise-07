@@ -25,11 +25,22 @@ public class ATM  {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			try {
-				System.out.print("Enter your account number: ");
-				int accountNumber = Integer.parseInt(br.readLine());
-				System.out.print("Enter the amount to withdraw: ");
-				int amount = Integer.parseInt(br.readLine());
-				cashout(accountNumber, amount);
+				System.out.print("Select 1 to withdraw Money or 2 to create a new bankaccount: ");
+				int input = Integer.valueOf((br.readLine()));
+				if(input==1){
+					System.out.print("Enter your account number: ");
+					String accountNumber = br.readLine();
+					System.out.print("Enter the amount to withdraw: ");
+					int amount = Integer.parseInt(br.readLine());
+					cashout(accountNumber, amount);
+				}
+				else if (input==2) {
+					System.out.print("Enter your preferred account number : ");	
+					String accountNumber = br.readLine();
+					System.out.print("Enter the Balance you would like to add: ");
+					int amount = Integer.parseInt(br.readLine());
+					setAccountinBankMap(accountNumber, amount);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				break;
@@ -37,7 +48,7 @@ public class ATM  {
 		}
 	}
 
-	public void cashout(int accountNumber, int amount) {
+	public void cashout(String accountNumber, int amount) {
 		// check for cash in the ATM
 		if (amount > cash) {
 			System.out.println("Sorry, not enough cash left.");
@@ -63,6 +74,15 @@ public class ATM  {
 		System.out.println("Ok, here is your money, enjoy!");
 
 	};
+	
+	public void setAccountinBankMap(String id,int balance) { 
+		if (!this.bank.accountMap.containsKey(id)) {
+		Account newAcc= new Account(id,balance);
+		this.bank.accountMap.put(newAcc.id,newAcc);
+		System.out.println("New Account created!");
+		}
+		else System.out.println("Sorry, this account number is taken. Try again"); 
+	}
 
 	/**
 	 * Launches the ATM
@@ -79,11 +99,11 @@ public class ATM  {
 	 * @param id
 	 * @return
 	 */
-	protected Account getAccount(int id) {
-		for (Account account : bank) {
-			if (account.getId() == id) 
-				return account;
+	protected Account getAccount(String id) {
+		if (this.bank.accountMap.containsKey(id)){
+			return this.bank.accountMap.get(id);
 		}
+		
 		return null;
 	}
 
