@@ -3,16 +3,23 @@ package idh.java;
 
 import java.util.Iterator;
 import java.util.Random;
+import java.util.HashMap;
+
 
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
-
+	
+	//private HashMap<Integer, Account> accountHashMap = new HashMap<>();
+	private HashMap<String, Account> accountHashMap = new HashMap<>();
+	
 	public Bank() {
 		// create accounts with varying balances
 		Random random = new Random();
-		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));
-		}
+        String[] ids = {"1234@5678", "cat_haz_cash", "💸", "unique_id1", "unique_id2"};
+        for (int i = 0; i < accounts.length; i++) {
+            accounts[i] = new Account(ids[i], random.nextInt(1000));
+            accountHashMap.put(accounts[i].getId(), accounts[i]);
+        }
 	}
 	
 	@Override
@@ -20,9 +27,11 @@ public class Bank implements Iterable<Account> {
 		return new AccountIterator(accounts);
 	}
 	
-	public Account getAccount(int number) {
-		// TODO: Implement
-		return null;
+	
+	
+	public Account getAccount(String number) {
+		return accountHashMap.get(number);
+		//return null;
 	}
 
 }
