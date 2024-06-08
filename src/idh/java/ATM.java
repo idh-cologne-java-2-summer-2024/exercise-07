@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class ATM  {
 	
 	// initial cash in the ATM
-	int cash = 100;
+	int cash = 1000;
 
 	Bank bank;
 	
