@@ -1,6 +1,5 @@
 package idh.java;
 
-
 import java.util.Iterator;
 
 class AccountIterator implements Iterator<Account> {
@@ -20,5 +19,4 @@ class AccountIterator implements Iterator<Account> {
 	public Account next() {
 		return accounts[currentPosition++];
 	}
-	
 }
