@@ -11,12 +11,18 @@ public class Bank implements Iterable<Account> {
 
 	public Bank() {
 		// create accounts with varying balances
-		String emoji = ":D";
+		String emojicon = ":D";
 		for (int i = 0; i < 5; i++) {
-			Account currentAccount = new Account(emoji, 500);
+			Account currentAccount = new Account(emojicon, 500);
 			addAccount(currentAccount);
-			emoji = emoji + "A";
+			emojicon = emojicon + "A";
 		}
+		Account emoji = new Account("💸", 500);
+		addAccount(emoji);
+		Account gesundheit = new Account("1234@5678" ,750);
+		addAccount(gesundheit);
+		Account catHaze = new Account("cat_haz_cash",1000);
+		addAccount(catHaze);
 	}
 	/**
 	 * Function to add an account to the hash-map*/
