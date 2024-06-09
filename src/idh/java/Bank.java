@@ -7,20 +7,21 @@ import java.util.Random;
 
 public class Bank implements Iterable<Account> {
 	//[] accounts = new Account[5];
-	HashMap<Integer,Account> accountsMap = new HashMap <Integer, Account>();
+	HashMap<String,Account> accountsMap = new HashMap <String, Account>();
 
 	public Bank() {
 		// create accounts with varying balances
+		String emoji = ":D";
 		for (int i = 0; i < 5; i++) {
-			Account currentAccount = new Account(i, 500);
+			Account currentAccount = new Account(emoji, 500);
 			addAccount(currentAccount);
+			emoji = emoji + "A";
 		}
 	}
 	/**
 	 * Function to add an account to the hash-map*/
 	protected HashMap addAccount(Account account) {
 		accountsMap.put(account.id, account);
-		
 		return accountsMap;
 	}
 	
@@ -30,9 +31,9 @@ public class Bank implements Iterable<Account> {
 		return null;
 	}
 	
-	public Account getAccount(int number) {
+	public Account getAccount(String accountNumber) {
 		
-		return accountsMap.get(number);
+		return accountsMap.get(accountNumber);
 	}
 
 }
