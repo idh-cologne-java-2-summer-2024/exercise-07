@@ -11,12 +11,18 @@ public class Bank implements Iterable<Account> {
 	private Map<Integer, Account> accountMap;
 
 	public Bank() {
+		accounts = new Account[] {
+	            new Account("1234@5678", 500),
+	            new Account("cat_haz_cash", 1500),
+	            new Account("💸", 2500),
+	            new Account("default1", 300),
+	            new Account("default2", 700)
+	            
 		accountMap = new HashMap<>();
-		Random random = new Random();
-		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));
-			accountMap.put(accounts[i].getNumber(), accounts[i]);
-		}
+	            for (Account account : accounts) {
+	                accountMap.put(account.getNumber(), account);
+	            }
+		
 	}
 	
 	@Override
