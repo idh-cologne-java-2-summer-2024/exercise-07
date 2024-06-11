@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class ATM  {
 	
 	// initial cash in the ATM
-	int cash = 100;
+	int cash = 1000;
 
 	Bank bank;
 	
@@ -62,7 +62,7 @@ public class ATM  {
 		cash += amount;
 		System.out.println("Ok, here is your money, enjoy!");
 
-	};
+	}
 
 	/**
 	 * Launches the ATM
@@ -71,7 +71,7 @@ public class ATM  {
 		Bank bank = new Bank();
 		ATM atm = new ATM(bank);
 		atm.run();
-	};
+	}
 	
 	/**
 	 * Retrieves the account given an id.
@@ -80,11 +80,8 @@ public class ATM  {
 	 * @return
 	 */
 	protected Account getAccount(int id) {
-		for (Account account : bank) {
-			if (account.getId() == id) 
-				return account;
-		}
-		return null;
+		//System.out.println(bank.getAccount(id).balance);
+		return bank.getAccount(id);
 	}
 
 }
