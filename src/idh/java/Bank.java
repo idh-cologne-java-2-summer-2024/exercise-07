@@ -7,20 +7,20 @@ import java.util.Random;
 
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
-	HashMap<Integer, Account> accMap;
+	HashMap<String, Account> accMap;
 
 	public Bank() {
 
-		HashMap<Integer, Account> accMap = new HashMap<>();
+		HashMap<String, Account> accMap = new HashMap<>();
 		
 		Random random = new Random();
 		
 		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));	
+			accounts[i] = new Account("Default", random.nextInt(1000));	
 		}
 		
 		for (int c = 0; c < accounts.length; c++) {
-			accMap.put(random.nextInt(1000), accounts[c]);
+			accMap.put("Default", accounts[c]);
 		}
 		this.accMap = accMap;
 	}
@@ -30,9 +30,9 @@ public class Bank implements Iterable<Account> {
 		return new AccountIterator(accounts);
 	}
 	
-	public Account getAccount(int number) {
-		if(accMap.containsKey(number)) {
-		return accMap.get(number);
+	public Account getAccount(String id) {
+		if(accMap.containsKey(id)) {
+		return accMap.get(id);
 		} else {
 			System.out.println("account does not exist");
 			return null;
