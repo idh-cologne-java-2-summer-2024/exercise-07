@@ -11,18 +11,18 @@ public class Account {
 	int balance;
 	
 	// the id of the account
-	int id;
+	String id;
 
-	public Account(int id, int status) {
+	public Account(String id, int balance) {
 		this.id = id;
-		this.balance = status;
+		this.balance = balance;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -30,8 +30,8 @@ public class Account {
 		return balance;
 	}
 
-	public void setBalance(int status) {
-		this.balance = status;
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 	
 	/**
