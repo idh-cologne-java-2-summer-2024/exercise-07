@@ -11,18 +11,18 @@ public class Account {
 	int balance;
 	
 	// the id of the account
-	int id;
+	String id;
 
-	public Account(int id, int status) {
-		this.id = id;
+	public Account(String string, int status) {
+		this.id = string;
 		this.balance = status;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

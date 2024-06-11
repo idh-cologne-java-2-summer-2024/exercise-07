@@ -2,22 +2,24 @@ package idh.java;
 
 
 import java.util.HashMap;
-import java.util.Random;
+import java.util.Iterator;
 
 public class Bank{
-	HashMap<Integer, Account> accountMap = new HashMap <Integer, Account>();
+	HashMap<String, Account> accountMap = new HashMap <String, Account>();
 
 	public Bank() {
 		// create accounts with varying balances
-		Random random = new Random();
-		for (int i = 0; i < accountMap.size(); i++) {
-			accountMap.put(i, new Account(i, random.nextInt(1000)));
+		accountMap.put("1234@5678", new Account("1234@5678", 100));
+		accountMap.put("cat_haz_cash", new Account("cat_haz_cash", 100));
+		accountMap.put("💸", new Account("💸", 100));
 		}
-	}
 	
-	public Account getAccount(int number) {
-		accountMap.get(number);
-		return null;
+	/*public Iterator<Account> iterator(){
+		return new AccountIterator(accountMap);
+	}
+	*/
+	public Account getAccount(String number) {
+		return accountMap.get(number);
 	}
 
 }
