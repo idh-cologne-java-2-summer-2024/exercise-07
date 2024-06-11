@@ -26,8 +26,7 @@ public class Bank implements Iterable<Account> {
 	
 	public Account getAccount(String id) {
 		// TODO: Implement
-		m.get(id);
-		return null;
+		return m.get(id);
 	}
 
 }
