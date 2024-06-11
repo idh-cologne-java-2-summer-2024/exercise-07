@@ -1,6 +1,7 @@
 package idh.java;
 
 
+import java.util.Collection;
 import java.util.Iterator;
 
 class AccountIterator implements Iterator<Account> {
@@ -11,6 +12,10 @@ class AccountIterator implements Iterator<Account> {
 		this.accounts = accounts;
 	}
 	
+	public AccountIterator(Collection<Account> values) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public boolean hasNext() {
 		return currentPosition < accounts.length;
