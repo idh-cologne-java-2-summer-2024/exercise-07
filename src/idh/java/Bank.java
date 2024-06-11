@@ -7,14 +7,14 @@ import java.util.HashMap;
 
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
-	HashMap<Integer, Account> m;
+	HashMap<String, Account> m;
 
 	public Bank() {
 		// create accounts with varying balances
 		Random random = new Random();
-		m = new HashMap<Integer, Account>();
+		m = new HashMap<String, Account>();
 		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));
+			accounts[i] = new Account(Integer.toString(i), random.nextInt(1000));
 			m.put(accounts[i].getId(), accounts[i]);
 		}
 	}
@@ -24,9 +24,9 @@ public class Bank implements Iterable<Account> {
 		return new AccountIterator(accounts);
 	}
 	
-	public Account getAccount(int number) {
+	public Account getAccount(String id) {
 		// TODO: Implement
-		m.get(number);
+		m.get(id);
 		return null;
 	}
 
