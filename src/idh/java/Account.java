@@ -1,5 +1,5 @@
 package idh.java;
-
+import java.util.Iterator;
 
 /**
  * This class represents an account in our bank.
@@ -11,36 +11,41 @@ public class Account {
 	int balance;
 	
 	// the id of the account
-	int id;
+	String id;
 
-	public Account(int id, int status) {
-		this.id = id;
-		this.balance = status;
-	}
+	public Account(String id, int balance) {
+        this.id = id;
+        this.balance = balance;
+    }
+
 	
-	public int getId() {
-		return id;
-	}
+	public String getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public int getBalance() {
-		return balance;
-	}
+    public int getBalance() {
+        return balance;
+    }
 
-	public void setBalance(int status) {
-		this.balance = status;
-	}
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
 	
 	/**
 	 * Withdraws a sum of money from the account
 	 * @param sum
 	 */
-	public void withdraw(int sum) {
-		this.balance = balance - sum;
-	}
-	
+    public void withdraw(int sum) {
+        if (balance >= sum) {
+            this.balance -= sum;
+        } else {
+            System.out.println("Insufficient funds");
+        }
+    }
 	
 }
