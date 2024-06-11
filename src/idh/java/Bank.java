@@ -6,25 +6,29 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class Bank implements Iterable<Account> {
-	Account[] accounts = new Account[5];
-	HashMap<Integer, Account> accountsMap = new HashMap<Integer, Account>();
+	
+	HashMap<String, Account> accountsMap = new HashMap<String, Account>(); 
 
 	public Bank() {
 		// create accounts with varying balances
-		Random random = new Random();
-		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));
+	
+		for (int i = 0; i < 10; i++) {
+			accountsMap.put("1234@5678", new Account("1234@5678", 100));
+			accountsMap.put("cat_haz_cash", new Account("cat_haz_cash", 100));
+			accountsMap.put("💸", new Account("💸", 100));
 		}
+		
+		
 	}
 	
+	public Account getAccount(String number) { //damit Automat Texteingaben erlaubt
+		return accountsMap.get(number); //um gespeichertes Account-Objekt zurückzubekommen
+	}
+
 	@Override
 	public Iterator<Account> iterator() {
-		return new AccountIterator(accounts);
-	}
-	
-	public Account getAccount(int number) {
-
-		return accountsMap.get(number); //um gespeichertes Account-Objekt zurückzubekommen
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
